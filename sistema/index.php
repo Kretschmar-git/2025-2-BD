@@ -40,7 +40,7 @@ $sql = $pdo->query("SELECT * FROM Aluno");
                             ?>
                         </td>
                         <td>
-                            <form action="atualizar.php" method="POST">
+                            <form action="editar.php" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
 
                                 <input type="submit" name="btnEditar" value="Editar" class="btn btn-primary">
