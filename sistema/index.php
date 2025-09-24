@@ -39,21 +39,30 @@ $sql = $pdo->query("SELECT * FROM Aluno");
                             echo $data
                             ?>
                         </td>
-                        <td>
-                            <form action="editar.php" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
+                        <td> <!-- Inicia uma célula da tabela -->
 
-                                <input type="submit" name="btnEditar" value="Editar" class="btn btn-primary">
-                            </form>
-                        </td>
+                        <!-- Cria um formulário para enviar dados para a página 'excluir.php' -->
+                        <form action="excluir.php" method="POST">
+                    
+                            <!-- Campo oculto que guarda o ID do aluno. Não é visível para o usuário, 
+                                 mas seu valor é enviado junto com o formulário para identificar qual aluno excluir. -->
+                            <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
+                    
+                            <!-- Botão que o usuário clica para submeter o formulário e acionar a exclusão.
+                                 O 'class="btn btn-danger"' é do Bootstrap, para deixar o botão vermelho. -->
+                            <input type="submit" name="btnExcluir" value="Excluir" class="btn btn-danger">
+                    
+                        </form> <!-- Fecha o formulário -->
+                    
+                        </td> <!-- Fecha a célula da tabela -->
                         <td>
-                        <td>
-                            <form action="excluir.php" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
-
-                                <input type="submit" name="btnExcluir" value="Excluir" class="btn btn-danger">
-                            </form>
-                        </td>
+                            <td>
+                                <form action="excluir.php" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
+    
+                                    <input type="submit" name="btnExcluir" value="Excluir" class="btn btn-danger">
+                                </form>
+                            </td>
                         </td>
                     </tr>
                 <?php } ?>
